@@ -1,0 +1,263 @@
+/* =========================================================
+   SCRIPT: CREACIÓN DE BASE DE DATOS EJERCICIO_BD
+   Tabla: Productos (200 registros)
+   Propósito: Practicar consultas SELECT con funciones SQL
+   =========================================================
+*/
+
+/* ---------------------------------------------------------
+   PASO 1: Crear la base de datos
+   ---------------------------------------------------------
+*/
+CREATE DATABASE IF NOT EXISTS Ejercicio_BD;
+
+-- Entramos a trabajar en la base de datos recién creada
+USE Ejercicio_BD;
+
+
+/* ---------------------------------------------------------
+   PASO 2: Crear la tabla Productos
+   ---------------------------------------------------------
+*/
+CREATE TABLE Productos (
+    ProductoID INT PRIMARY KEY AUTO_INCREMENT,  -- Identificador único (se incrementa solo)
+    Nombre VARCHAR(100) NOT NULL,               -- Nombre del producto
+    Categoria VARCHAR(50) NOT NULL,             -- Categoría (Electrónica, Ropa, etc.)
+    Marca VARCHAR(50),                          -- Marca del producto
+    Precio DECIMAL(10,2) NOT NULL,              -- Precio con 2 decimales (ej: 1599.99)
+    Stock INT NOT NULL,                         -- Cantidad disponible en inventario
+    Descuento DECIMAL(5,2) DEFAULT 0.00,        -- Porcentaje de descuento (ej: 15.50)
+    Peso DECIMAL(8,2),                          -- Peso en kilogramos
+    FechaIngreso DATE                           -- Fecha de ingreso al inventario
+);
+-- ¡Tabla creada! Ahora viene la parte divertida: llenarla con datos.
+
+
+/* ---------------------------------------------------------
+   PASO 3: Poblar la tabla con 200 registros
+   ---------------------------------------------------------
+*/
+
+-- Productos 1-25: ELECTRÓNICA
+INSERT INTO Productos (Nombre, Categoria, Marca, Precio, Stock, Descuento, Peso, FechaIngreso) VALUES
+('Laptop HP Pavilion 15', 'Electrónica', 'HP', 1599.99, 45, 10.00, 2.10, '2024-01-15'),
+('Mouse Inalámbrico Logitech', 'Electrónica', 'Logitech', 29.99, 150, 0.00, 0.08, '2024-01-20'),
+('Teclado Mecánico RGB', 'Electrónica', 'Razer', 89.99, 75, 15.00, 0.95, '2024-01-18'),
+('Monitor LG 27 pulgadas', 'Electrónica', 'LG', 349.99, 30, 5.00, 6.50, '2024-02-01'),
+('Auriculares Sony WH-1000XM4', 'Electrónica', 'Sony', 279.99, 60, 20.00, 0.25, '2024-02-05'),
+('Cámara Web HD Logitech', 'Electrónica', 'Logitech', 69.99, 120, 0.00, 0.18, '2024-01-25'),
+('Disco Duro Externo 1TB', 'Electrónica', 'Seagate', 59.99, 200, 10.00, 0.15, '2024-02-10'),
+('Memoria USB 64GB', 'Electrónica', 'SanDisk', 12.99, 300, 0.00, 0.01, '2024-01-30'),
+('Cable HDMI 2 metros', 'Electrónica', 'AmazonBasics', 8.99, 250, 0.00, 0.12, '2024-02-08'),
+('Adaptador USB-C a HDMI', 'Electrónica', 'Anker', 24.99, 180, 5.00, 0.05, '2024-02-12'),
+('Tablet Samsung Galaxy Tab', 'Electrónica', 'Samsung', 299.99, 55, 12.00, 0.45, '2024-01-22'),
+('Smartwatch Apple Watch Series 8', 'Electrónica', 'Apple', 399.99, 40, 0.00, 0.03, '2024-02-15'),
+('Cargador Portátil 20000mAh', 'Electrónica', 'Anker', 45.99, 90, 10.00, 0.35, '2024-02-03'),
+('Router WiFi TP-Link', 'Electrónica', 'TP-Link', 79.99, 65, 8.00, 0.40, '2024-01-28'),
+('Impresora HP LaserJet', 'Electrónica', 'HP', 189.99, 25, 15.00, 7.20, '2024-02-20'),
+('Micrófono USB para Streaming', 'Electrónica', 'Blue Yeti', 129.99, 48, 5.00, 0.55, '2024-02-18'),
+('Webcam 4K Logitech Brio', 'Electrónica', 'Logitech', 199.99, 35, 10.00, 0.06, '2024-01-12'),
+('Hub USB 3.0 de 7 Puertos', 'Electrónica', 'Anker', 34.99, 110, 0.00, 0.15, '2024-02-22'),
+('Lámpara LED de Escritorio', 'Electrónica', 'TaoTronics', 39.99, 85, 12.00, 0.80, '2024-02-25'),
+('Soporte para Laptop Ajustable', 'Electrónica', 'AmazonBasics', 28.99, 95, 0.00, 1.20, '2024-01-17'),
+('Mousepad Gaming XXL', 'Electrónica', 'SteelSeries', 19.99, 140, 0.00, 0.30, '2024-02-28'),
+('Ventilador USB para Laptop', 'Electrónica', 'Cooler Master', 15.99, 160, 5.00, 0.25, '2024-02-14'),
+('Altavoces Bluetooth Portátiles', 'Electrónica', 'JBL', 79.99, 70, 18.00, 0.50, '2024-01-19'),
+('Funda para Laptop 15.6"', 'Electrónica', 'Targus', 22.99, 125, 0.00, 0.35, '2024-02-11'),
+('Protector de Pantalla Privacidad', 'Electrónica', '3M', 44.99, 55, 8.00, 0.10, '2024-02-16');
+
+-- Productos 26-50: ROPA
+INSERT INTO Productos (Nombre, Categoria, Marca, Precio, Stock, Descuento, Peso, FechaIngreso) VALUES
+('Camiseta Básica Blanca', 'Ropa', 'H&M', 9.99, 200, 0.00, 0.20, '2024-01-10'),
+('Jeans Slim Fit Azul', 'Ropa', 'Levi\'s', 59.99, 120, 20.00, 0.65, '2024-01-14'),
+('Sudadera con Capucha Negra', 'Ropa', 'Nike', 49.99, 95, 15.00, 0.55, '2024-01-16'),
+('Zapatillas Running Mujer', 'Ropa', 'Adidas', 89.99, 80, 25.00, 0.40, '2024-02-02'),
+('Chaqueta de Cuero Sintético', 'Ropa', 'Zara', 79.99, 60, 10.00, 1.10, '2024-02-06'),
+('Vestido Casual Verano', 'Ropa', 'Mango', 39.99, 75, 30.00, 0.30, '2024-01-21'),
+('Pantalón Deportivo Gris', 'Ropa', 'Puma', 34.99, 110, 12.00, 0.45, '2024-02-09'),
+('Camisa Formal Blanca', 'Ropa', 'Calvin Klein', 54.99, 65, 0.00, 0.25, '2024-01-26'),
+('Falda Midi Negra', 'Ropa', 'Forever 21', 24.99, 90, 15.00, 0.28, '2024-02-13'),
+('Abrigo de Invierno', 'Ropa', 'North Face', 159.99, 35, 20.00, 1.80, '2024-01-11'),
+('Bufanda de Lana', 'Ropa', 'Uniqlo', 19.99, 140, 0.00, 0.15, '2024-02-17'),
+('Gorro de Punto', 'Ropa', 'GAP', 14.99, 160, 5.00, 0.08, '2024-02-21'),
+('Calcetines Pack 5 Pares', 'Ropa', 'H&M', 12.99, 250, 0.00, 0.20, '2024-01-13'),
+('Cinturón de Cuero Marrón', 'Ropa', 'Tommy Hilfiger', 39.99, 85, 10.00, 0.25, '2024-02-24'),
+('Pijama de Algodón', 'Ropa', 'Victoria\'s Secret', 44.99, 70, 18.00, 0.35, '2024-01-23'),
+('Bikini Estampado', 'Ropa', 'Roxy', 49.99, 55, 25.00, 0.12, '2024-02-19'),
+('Traje de Baño Hombre', 'Ropa', 'Speedo', 29.99, 100, 15.00, 0.18, '2024-01-27'),
+('Guantes de Invierno', 'Ropa', 'Columbia', 24.99, 95, 0.00, 0.12, '2024-02-26'),
+('Corbata de Seda', 'Ropa', 'Hugo Boss', 49.99, 40, 10.00, 0.08, '2024-01-29'),
+('Boina Francesa', 'Ropa', 'Beret', 18.99, 60, 5.00, 0.10, '2024-02-27'),
+('Camiseta Deportiva Dry-Fit', 'Ropa', 'Under Armour', 34.99, 130, 20.00, 0.22, '2024-01-24'),
+('Shorts de Mezclilla', 'Ropa', 'Levi\'s', 44.99, 88, 12.00, 0.35, '2024-02-23'),
+('Leggins Deportivos', 'Ropa', 'Gymshark', 39.99, 105, 15.00, 0.28, '2024-02-07'),
+('Polo Manga Corta', 'Ropa', 'Lacoste', 64.99, 72, 8.00, 0.30, '2024-01-31'),
+('Blusa Estampada Floral', 'Ropa', 'Zara', 34.99, 82, 22.00, 0.24, '2024-02-04');
+
+-- Productos 51-75: HOGAR
+INSERT INTO Productos (Nombre, Categoria, Marca, Precio, Stock, Descuento, Peso, FechaIngreso) VALUES
+('Juego de Sábanas Queen', 'Hogar', 'AmazonBasics', 39.99, 100, 10.00, 1.50, '2024-01-12'),
+('Almohada Memory Foam', 'Hogar', 'Tempur-Pedic', 79.99, 65, 15.00, 1.20, '2024-01-16'),
+('Edredón King Size', 'Hogar', 'IKEA', 89.99, 45, 20.00, 2.80, '2024-02-01'),
+('Cortinas Blackout 2 Paneles', 'Hogar', 'Eclipse', 34.99, 85, 0.00, 1.60, '2024-02-05'),
+('Alfombra Sala 2x3 metros', 'Hogar', 'Safavieh', 149.99, 30, 25.00, 5.50, '2024-01-20'),
+('Lámpara de Pie Moderna', 'Hogar', 'Brightech', 59.99, 55, 12.00, 2.20, '2024-02-10'),
+('Espejo de Pared Grande', 'Hogar', 'Home Depot', 69.99, 40, 8.00, 4.80, '2024-01-25'),
+('Set de Toallas 6 Piezas', 'Hogar', 'Utopia Towels', 29.99, 120, 0.00, 1.80, '2024-02-14'),
+('Organizador de Closet', 'Hogar', 'ClosetMaid', 44.99, 70, 10.00, 3.20, '2024-01-30'),
+('Perchero de Pared', 'Hogar', 'IKEA', 19.99, 95, 0.00, 1.10, '2024-02-18'),
+('Papelera con Tapa', 'Hogar', 'Simplehuman', 49.99, 60, 15.00, 2.50, '2024-02-03'),
+('Reloj de Pared Digital', 'Hogar', 'Marathon', 24.99, 110, 5.00, 0.65, '2024-01-18'),
+('Marco de Fotos Set 10 Piezas', 'Hogar', 'Nicola Spring', 34.99, 88, 0.00, 1.40, '2024-02-22'),
+('Jarrón Decorativo Cerámico', 'Hogar', 'Lenox', 39.99, 50, 18.00, 1.80, '2024-02-08'),
+('Cojines Decorativos Pack 4', 'Hogar', 'MIULEE', 27.99, 135, 12.00, 0.95, '2024-01-22'),
+('Lámpara de Mesa LED', 'Hogar', 'TaoTronics', 32.99, 92, 8.00, 0.75, '2024-02-25'),
+('Estante Flotante Madera', 'Hogar', 'WELLAND', 45.99, 65, 10.00, 2.40, '2024-01-28'),
+('Canasta de Almacenaje', 'Hogar', 'IKEA', 14.99, 150, 0.00, 0.85, '2024-02-12'),
+('Difusor de Aromas', 'Hogar', 'InnoGear', 21.99, 105, 15.00, 0.45, '2024-02-16'),
+('Manta Polar Suave', 'Hogar', 'Bedsure', 24.99, 115, 20.00, 1.10, '2024-01-14'),
+('Tapete de Entrada', 'Hogar', 'Gorilla Grip', 18.99, 140, 0.00, 1.30, '2024-02-20'),
+('Porta Velas Set 3 Piezas', 'Hogar', 'Yankee Candle', 29.99, 80, 10.00, 0.90, '2024-01-26'),
+('Persianas Enrollables', 'Hogar', 'Achim Home', 39.99, 52, 12.00, 1.70, '2024-02-24'),
+('Cesta de Ropa Plegable', 'Hogar', 'Sterilite', 16.99, 125, 0.00, 0.68, '2024-02-11'),
+('Cuadro Decorativo Canvas', 'Hogar', 'Wieco Art', 54.99, 48, 25.00, 1.20, '2024-01-19');
+
+-- Productos 76-100: COCINA
+INSERT INTO Productos (Nombre, Categoria, Marca, Precio, Stock, Descuento, Peso, FechaIngreso) VALUES
+('Juego de Ollas 10 Piezas', 'Cocina', 'T-fal', 89.99, 55, 15.00, 6.50, '2024-01-15'),
+('Sartén Antiadherente 28cm', 'Cocina', 'Tefal', 34.99, 95, 10.00, 1.20, '2024-02-01'),
+('Licuadora de Alta Potencia', 'Cocina', 'Ninja', 99.99, 40, 20.00, 3.80, '2024-01-20'),
+('Cafetera Programable 12 Tazas', 'Cocina', 'Mr. Coffee', 49.99, 70, 12.00, 2.40, '2024-02-05'),
+('Juego de Cuchillos 15 Piezas', 'Cocina', 'Cuisinart', 79.99, 45, 18.00, 2.10, '2024-01-25'),
+('Tabla de Cortar Bambú', 'Cocina', 'Totally Bamboo', 24.99, 110, 0.00, 1.50, '2024-02-10'),
+('Batidora de Mano', 'Cocina', 'Braun', 39.99, 85, 8.00, 0.95, '2024-01-30'),
+('Procesador de Alimentos', 'Cocina', 'Cuisinart', 129.99, 35, 25.00, 4.20, '2024-02-14'),
+('Tostadora de 4 Ranuras', 'Cocina', 'Hamilton Beach', 44.99, 68, 10.00, 1.80, '2024-02-03'),
+('Juego de Sartenes 3 Piezas', 'Cocina', 'Calphalon', 69.99, 52, 15.00, 2.70, '2024-01-18'),
+('Olla de Presión Eléctrica', 'Cocina', 'Instant Pot', 79.99, 60, 20.00, 5.40, '2024-02-18'),
+('Exprimidor de Cítricos', 'Cocina', 'BLACK+DECKER', 19.99, 120, 0.00, 0.85, '2024-02-08'),
+('Jarra Medidora Vidrio', 'Cocina', 'Pyrex', 14.99, 145, 5.00, 0.65, '2024-01-22'),
+('Set de Cucharas Medidoras', 'Cocina', 'OXO', 12.99, 160, 0.00, 0.18, '2024-02-22'),
+('Colador de Acero Inoxidable', 'Cocina', 'RSVP', 16.99, 135, 0.00, 0.45, '2024-02-12'),
+('Rallador de Queso 4 Caras', 'Cocina', 'Cuisipro', 22.99, 98, 10.00, 0.55, '2024-01-28'),
+('Abridor de Latas Eléctrico', 'Cocina', 'Hamilton Beach', 24.99, 75, 12.00, 0.72, '2024-02-25'),
+('Báscula de Cocina Digital', 'Cocina', 'Etekcity', 18.99, 105, 8.00, 0.38, '2024-01-14'),
+('Termo para Café 500ml', 'Cocina', 'Contigo', 24.99, 115, 15.00, 0.42, '2024-02-16'),
+('Especieros Giratorios 16 Frascos', 'Cocina', 'Kamenstein', 39.99, 58, 18.00, 2.20, '2024-02-20'),
+('Guantes de Cocina Silicona', 'Cocina', 'OXO', 15.99, 140, 0.00, 0.28, '2024-01-26'),
+('Recipientes Herméticos 20 Pzs', 'Cocina', 'Rubbermaid', 34.99, 82, 20.00, 1.85, '2024-02-24'),
+('Escurridor de Platos Plegable', 'Cocina', 'Prepworks', 29.99, 90, 10.00, 1.10, '2024-01-17'),
+('Tetera Eléctrica 1.7L', 'Cocina', 'Ovente', 27.99, 95, 12.00, 1.30, '2024-02-11'),
+('Moldes para Hornear 6 Piezas', 'Cocina', 'Wilton', 44.99, 65, 15.00, 2.60, '2024-02-19');
+
+-- Productos 101-125: DEPORTES
+INSERT INTO Productos (Nombre, Categoria, Marca, Precio, Stock, Descuento, Peso, FechaIngreso) VALUES
+('Balón de Fútbol Profesional', 'Deportes', 'Adidas', 34.99, 80, 10.00, 0.43, '2024-01-15'),
+('Raqueta de Tenis', 'Deportes', 'Wilson', 89.99, 45, 15.00, 0.28, '2024-02-01'),
+('Pesas Ajustables 20kg', 'Deportes', 'Bowflex', 299.99, 25, 20.00, 20.50, '2024-01-20'),
+('Colchoneta Yoga Antideslizante', 'Deportes', 'Manduka', 59.99, 95, 12.00, 1.80, '2024-02-05'),
+('Cuerda para Saltar Profesional', 'Deportes', 'Crossrope', 24.99, 130, 0.00, 0.25, '2024-01-25'),
+('Mancuernas 5kg Par', 'Deportes', 'CAP Barbell', 29.99, 110, 8.00, 10.20, '2024-02-10'),
+('Banda Elástica Resistencia Set', 'Deportes', 'TheraBand', 19.99, 155, 5.00, 0.35, '2024-01-30'),
+('Bicicleta Estática Plegable', 'Deportes', 'Exerpeutic', 149.99, 20, 25.00, 18.50, '2024-02-14'),
+('Pelota de Baloncesto', 'Deportes', 'Spalding', 39.99, 75, 10.00, 0.62, '2024-02-03'),
+('Guantes de Boxeo 12oz', 'Deportes', 'Everlast', 44.99, 60, 15.00, 0.68, '2024-01-18'),
+('Red de Voleibol Portátil', 'Deportes', 'Park & Sun', 79.99, 35, 18.00, 4.20, '2024-02-18'),
+('Patineta Completa', 'Deportes', 'Tony Hawk', 69.99, 50, 20.00, 2.40, '2024-02-08'),
+('Rodilleras Deportivas Par', 'Deportes', 'McDavid', 27.99, 120, 0.00, 0.22, '2024-01-22'),
+('Botella de Agua 1L', 'Deportes', 'Hydro Flask', 34.99, 140, 10.00, 0.35, '2024-02-22'),
+('Cronómetro Digital', 'Deportes', 'Robic', 18.99, 88, 5.00, 0.12, '2024-02-12'),
+('Silbato de Árbitro', 'Deportes', 'Fox 40', 8.99, 200, 0.00, 0.03, '2024-01-28'),
+('Pelota de Pilates 65cm', 'Deportes', 'Trideer', 22.99, 105, 12.00, 1.10, '2024-02-25'),
+('Barra Dominadas Ajustable', 'Deportes', 'Iron Gym', 34.99, 72, 15.00, 2.80, '2024-01-14'),
+('Roller para Masajes', 'Deportes', 'TriggerPoint', 29.99, 95, 8.00, 0.85, '2024-02-16'),
+('Gafas de Natación', 'Deportes', 'Speedo', 19.99, 125, 0.00, 0.08, '2024-02-20'),
+('Gorra de Natación Silicona', 'Deportes', 'Arena', 12.99, 160, 5.00, 0.05, '2024-01-26'),
+('Pelota Medicinal 4kg', 'Deportes', 'Valeo', 39.99, 58, 18.00, 4.10, '2024-02-24'),
+('Tapete para Ejercicio', 'Deportes', 'BalanceFrom', 24.99, 115, 10.00, 1.50, '2024-01-17'),
+('Cinta para el Sudor Pack 3', 'Deportes', 'Nike', 14.99, 145, 0.00, 0.06, '2024-02-11'),
+('Bolsa Deportiva Grande', 'Deportes', 'Under Armour', 49.99, 82, 20.00, 0.95, '2024-02-19');
+
+-- Productos 126-150: JUGUETES
+INSERT INTO Productos (Nombre, Categoria, Marca, Precio, Stock, Descuento, Peso, FechaIngreso) VALUES
+('LEGO Star Wars Halcón Milenario', 'Juguetes', 'LEGO', 159.99, 35, 15.00, 2.80, '2024-01-15'),
+('Muñeca Barbie Fashionista', 'Juguetes', 'Mattel', 24.99, 120, 10.00, 0.35, '2024-02-01'),
+('Hot Wheels Pack 20 Autos', 'Juguetes', 'Mattel', 19.99, 150, 0.00, 0.85, '2024-01-20'),
+('Pelota de Playa Inflable', 'Juguetes', 'Intex', 8.99, 200, 5.00, 0.15, '2024-02-05'),
+('Rompecabezas 1000 Piezas', 'Juguetes', 'Ravensburger', 19.99, 95, 8.00, 0.95, '2024-01-25'),
+('Play-Doh Set 20 Botes', 'Juguetes', 'Hasbro', 24.99, 110, 12.00, 1.20, '2024-02-10'),
+('Nerf Elite Blaster', 'Juguetes', 'Nerf', 34.99, 75, 15.00, 0.68, '2024-01-30'),
+('Monopoly Edición Clásica', 'Juguetes', 'Hasbro', 29.99, 88, 10.00, 1.10, '2024-02-14'),
+('Cubo Rubik Original', 'Juguetes', 'Rubik\'s', 12.99, 165, 0.00, 0.12, '2024-02-03'),
+('Set de Construcción 500 Piezas', 'Juguetes', 'Mega Bloks', 39.99, 62, 18.00, 2.40, '2024-01-18'),
+('Peluche Osito Grande', 'Juguetes', 'Melissa & Doug', 34.99, 80, 20.00, 1.50, '2024-02-18'),
+('Control Remoto Carro Deportivo', 'Juguetes', 'Maisto', 44.99, 55, 15.00, 1.85, '2024-02-08'),
+('Casa de Muñecas 3 Pisos', 'Juguetes', 'KidKraft', 129.99, 25, 25.00, 12.50, '2024-01-22'),
+('Triciclo Infantil', 'Juguetes', 'Radio Flyer', 79.99, 40, 12.00, 8.20, '2024-02-22'),
+('Patinete 3 Ruedas', 'Juguetes', 'Razor', 49.99, 65, 10.00, 3.40, '2024-02-12'),
+('Slime Brillante Pack 6', 'Juguetes', 'Elmer\'s', 14.99, 140, 5.00, 0.95, '2024-01-28'),
+('Pistola de Agua Super Soaker', 'Juguetes', 'Nerf', 29.99, 98, 18.00, 0.85, '2024-02-25'),
+('Pelotas de Colores Pack 50', 'Juguetes', 'Intex', 22.99, 115, 0.00, 2.10, '2024-01-14'),
+('Juego de Mesa Ajedrez', 'Juguetes', 'Cardinal', 24.99, 72, 8.00, 1.30, '2024-02-16'),
+('Cartas Pokémon Caja Sobres', 'Juguetes', 'Pokémon', 49.99, 85, 15.00, 0.65, '2024-02-20'),
+('Drone con Cámara HD', 'Juguetes', 'Holy Stone', 89.99, 45, 20.00, 1.20, '2024-01-26'),
+('Scrabble Edición Deluxe', 'Juguetes', 'Hasbro', 34.99, 68, 10.00, 1.40, '2024-02-24'),
+('Jenga Gigante Torre', 'Juguetes', 'Hasbro', 39.99, 52, 12.00, 3.80, '2024-01-17'),
+('Twister Juego de Piso', 'Juguetes', 'Hasbro', 19.99, 105, 0.00, 1.20, '2024-02-11'),
+('Pista de Carreras Hot Wheels', 'Juguetes', 'Mattel', 59.99, 48, 15.00, 2.90, '2024-02-19');
+
+-- Productos 151-175: LIBROS
+INSERT INTO Productos (Nombre, Categoria, Marca, Precio, Stock, Descuento, Peso, FechaIngreso) VALUES
+('Harry Potter Colección 7 Libros', 'Libros', 'Scholastic', 89.99, 60, 15.00, 3.50, '2024-01-15'),
+('El Principito', 'Libros', 'Editorial Planeta', 12.99, 150, 0.00, 0.22, '2024-02-01'),
+('Sapiens De Animales a Dioses', 'Libros', 'Debate', 19.99, 95, 10.00, 0.65, '2024-01-20'),
+('1984 George Orwell', 'Libros', 'Penguin', 14.99, 120, 5.00, 0.38, '2024-02-05'),
+('Cien Años de Soledad', 'Libros', 'Diana', 16.99, 88, 8.00, 0.45, '2024-01-25'),
+('Don Quijote de la Mancha', 'Libros', 'RAE', 24.99, 72, 12.00, 1.10, '2024-02-10'),
+('El Alquimista Paulo Coelho', 'Libros', 'HarperCollins', 15.99, 110, 0.00, 0.35, '2024-01-30'),
+('Padre Rico Padre Pobre', 'Libros', 'Aguilar', 18.99, 135, 15.00, 0.42, '2024-02-14'),
+('Atomic Habits James Clear', 'Libros', 'Avery', 21.99, 105, 10.00, 0.48, '2024-02-03'),
+('El Sutil Arte de que No Te Importe', 'Libros', 'HarperCollins', 17.99, 98, 12.00, 0.40, '2024-01-18'),
+('Homo Deus Yuval Noah Harari', 'Libros', 'Debate', 22.99, 82, 18.00, 0.72, '2024-02-18'),
+('La Sombra del Viento', 'Libros', 'Planeta', 19.99, 75, 8.00, 0.58, '2024-02-08'),
+('Orgullo y Prejuicio', 'Libros', 'Penguin Classics', 13.99, 92, 5.00, 0.36, '2024-01-22'),
+('El Código Da Vinci', 'Libros', 'Doubleday', 16.99, 88, 10.00, 0.52, '2024-02-22'),
+('Piense y Hágase Rico', 'Libros', 'Taller del Éxito', 14.99, 125, 0.00, 0.38, '2024-02-12'),
+('El Poder del Ahora', 'Libros', 'New World Library', 18.99, 95, 12.00, 0.44, '2024-01-28'),
+('Inteligencia Emocional Goleman', 'Libros', 'Bantam', 20.99, 78, 15.00, 0.62, '2024-02-25'),
+('Los 4 Acuerdos Don Miguel Ruiz', 'Libros', 'Amber-Allen', 15.99, 115, 8.00, 0.32, '2024-01-14'),
+('Matar a un Ruiseñor', 'Libros', 'HarperCollins', 14.99, 102, 5.00, 0.42, '2024-02-16'),
+('El Hobbit J.R.R. Tolkien', 'Libros', 'Minotauro', 17.99, 85, 10.00, 0.55, '2024-02-20'),
+('Fahrenheit 451 Ray Bradbury', 'Libros', 'Simon & Schuster', 13.99, 108, 0.00, 0.34, '2024-01-26'),
+('La Odisea Homero', 'Libros', 'Penguin Classics', 12.99, 95, 8.00, 0.48, '2024-02-24'),
+('Crimen y Castigo Dostoievski', 'Libros', 'Vintage Classics', 18.99, 68, 12.00, 0.82, '2024-01-17'),
+('El Gran Gatsby Fitzgerald', 'Libros', 'Scribner', 14.99, 118, 5.00, 0.36, '2024-02-11'),
+('El Retrato de Dorian Gray', 'Libros', 'Penguin', 13.99, 88, 10.00, 0.38, '2024-02-19');
+
+-- Productos 176-200: SALUD Y BELLEZA
+INSERT INTO Productos (Nombre, Categoria, Marca, Precio, Stock, Descuento, Peso, FechaIngreso) VALUES
+('Crema Facial Hidratante 50ml', 'Salud y Belleza', 'Neutrogena', 14.99, 140, 10.00, 0.08, '2024-01-15'),
+('Shampoo Revitalizante 400ml', 'Salud y Belleza', 'Pantene', 8.99, 180, 5.00, 0.42, '2024-02-01'),
+('Desodorante Roll-On', 'Salud y Belleza', 'Dove', 4.99, 250, 0.00, 0.05, '2024-01-20'),
+('Pasta Dental Blanqueadora', 'Salud y Belleza', 'Colgate', 5.99, 220, 8.00, 0.15, '2024-02-05'),
+('Protector Solar FPS 50', 'Salud y Belleza', 'La Roche-Posay', 24.99, 95, 15.00, 0.12, '2024-01-25'),
+('Sérum Vitamina C 30ml', 'Salud y Belleza', 'TruSkin', 19.99, 115, 20.00, 0.06, '2024-02-10'),
+('Mascarilla Facial Arcilla', 'Salud y Belleza', 'Aztec Secret', 12.99, 135, 12.00, 0.22, '2024-01-30'),
+('Aceite de Argán Orgánico', 'Salud y Belleza', 'Pura D\'or', 18.99, 88, 18.00, 0.10, '2024-02-14'),
+('Cepillo Eléctrico Dental', 'Salud y Belleza', 'Oral-B', 49.99, 62, 25.00, 0.28, '2024-02-03'),
+('Máquina de Afeitar Eléctrica', 'Salud y Belleza', 'Philips Norelco', 79.99, 45, 20.00, 0.52, '2024-01-18'),
+('Kit de Manicure 15 Piezas', 'Salud y Belleza', 'Tweezerman', 29.99, 72, 10.00, 0.35, '2024-02-18'),
+('Esmalte de Uñas Set 12', 'Salud y Belleza', 'OPI', 34.99, 85, 15.00, 0.48, '2024-02-08'),
+('Rizador de Cabello Cerámica', 'Salud y Belleza', 'Conair', 24.99, 95, 12.00, 0.42, '2024-01-22'),
+('Plancha de Cabello Profesional', 'Salud y Belleza', 'GHD', 199.99, 30, 18.00, 0.68, '2024-02-22'),
+('Secadora de Cabello Iónica', 'Salud y Belleza', 'Revlon', 39.99, 68, 15.00, 0.85, '2024-02-12'),
+('Cepillo Desenredante', 'Salud y Belleza', 'Wet Brush', 12.99, 155, 0.00, 0.08, '2024-01-28'),
+('Perfume Hombre 100ml', 'Salud y Belleza', 'Calvin Klein', 59.99, 52, 20.00, 0.35, '2024-02-25'),
+('Perfume Mujer 50ml', 'Salud y Belleza', 'Chanel', 129.99, 35, 15.00, 0.28, '2024-01-14'),
+('Loción Corporal Hidratante', 'Salud y Belleza', 'CeraVe', 16.99, 125, 10.00, 0.48, '2024-02-16'),
+('Jabón Líquido Antibacterial', 'Salud y Belleza', 'Dial', 6.99, 200, 5.00, 0.35, '2024-02-20'),
+('Bálsamo Labial SPF 15', 'Salud y Belleza', 'Burt\'s Bees', 4.99, 240, 0.00, 0.01, '2024-01-26'),
+('Mascarilla Capilar Reparadora', 'Salud y Belleza', 'Moroccanoil', 34.99, 78, 22.00, 0.25, '2024-02-24'),
+('Termómetro Digital Infrarrojo', 'Salud y Belleza', 'Braun', 44.99, 55, 18.00, 0.15, '2024-01-17'),
+('Tensiómetro Digital de Brazo', 'Salud y Belleza', 'Omron', 54.99, 48, 15.00, 0.42, '2024-02-11'),
+('Báscula Digital de Baño', 'Salud y Belleza', 'Etekcity', 24.99, 105, 12.00, 1.20, '2024-02-19');

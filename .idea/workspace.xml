@@ -4,20 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5f9e27c-1bdb-419f-a97b-fac93ee2cb8e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/SQL El Gran Sistema de inventario.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e5f9e27c-1bdb-419f-a97b-fac93ee2cb8e" name="Changes" comment="Preparacion - Configuracion basica del proyecto">
+      <change afterPath="$PROJECT_DIR$/utilitarias/BaseDatos.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utilitarias/Producto.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utilitarias/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "camilovh"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/camilovh/TD_Gestion_Inventario.git",
+    "accountId": "402afb01-2ad2-411b-8e13-d5a632d260a1"
+  }
+}]]></component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/utilitarias/Producto.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="McpProjectServerCommands">
     <commands />
@@ -27,6 +47,9 @@
   "associatedIndex": 1
 }]]></component>
   <component name="ProjectId" id="39lpTdx84GCsyFdHyg1hyimFira" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -63,8 +86,21 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1771280521501</updated>
-      <workItem from="1771280523016" duration="715000" />
+      <workItem from="1771280523016" duration="2024000" />
     </task>
+    <task id="LOCAL-00001" summary="Preparacion - Configuracion basica del proyecto">
+      <option name="closed" value="true" />
+      <created>1771281347351</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1771281347351</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Preparacion - Configuracion basica del proyecto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Preparacion - Configuracion basica del proyecto" />
   </component>
 </project>
