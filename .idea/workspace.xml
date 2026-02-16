@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5f9e27c-1bdb-419f-a97b-fac93ee2cb8e" name="Changes" comment="Preparacion - Configuracion basica del proyecto">
-      <change afterPath="$PROJECT_DIR$/utilitarias/BaseDatos.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utilitarias/Producto.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utilitarias/__init__.py" afterDir="false" />
+    <list default="true" id="e5f9e27c-1bdb-419f-a97b-fac93ee2cb8e" name="Changes" comment="trabajo fase 1 - creacion clase producto&#10;Preparacion - Configuracion basica del proyecto">
+      <change beforePath="$PROJECT_DIR$/utilitarias/BaseDatos.py" beforeDir="false" afterPath="$PROJECT_DIR$/utilitarias/BaseDatos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilitarias/Producto.py" beforeDir="false" afterPath="$PROJECT_DIR$/utilitarias/Producto.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +85,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1771280521501</updated>
-      <workItem from="1771280523016" duration="2024000" />
+      <workItem from="1771280523016" duration="4128000" />
     </task>
     <task id="LOCAL-00001" summary="Preparacion - Configuracion basica del proyecto">
       <option name="closed" value="true" />
@@ -96,11 +95,20 @@
       <option name="project" value="LOCAL" />
       <updated>1771281347351</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="trabajo fase 1 - creacion clase producto&#10;Preparacion - Configuracion basica del proyecto">
+      <option name="closed" value="true" />
+      <created>1771282599032</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1771282599032</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Preparacion - Configuracion basica del proyecto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Preparacion - Configuracion basica del proyecto" />
+    <MESSAGE value="trabajo fase 1 - creacion clase producto&#10;Preparacion - Configuracion basica del proyecto" />
+    <option name="LAST_COMMIT_MESSAGE" value="trabajo fase 1 - creacion clase producto&#10;Preparacion - Configuracion basica del proyecto" />
   </component>
 </project>

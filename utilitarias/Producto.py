@@ -12,6 +12,7 @@ class Producto:
         self._peso = peso
         self._fecha_ingreso = fecha_ingreso
 
+#Getter y Setter
     def get_id(self):
         return self._id
     def set_id(self, id):
