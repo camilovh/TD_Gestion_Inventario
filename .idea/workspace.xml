@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5f9e27c-1bdb-419f-a97b-fac93ee2cb8e" name="Changes" comment="trabajo fase 2">
+    <list default="true" id="e5f9e27c-1bdb-419f-a97b-fac93ee2cb8e" name="Changes" comment="trabajo fase 3">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7f424314-3bb1-4786-8ca5-d09a4c177b44.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7f424314-3bb1-4786-8ca5-d09a4c177b44.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Principal.py" beforeDir="false" afterPath="$PROJECT_DIR$/Principal.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utilitarias/BaseDatos.py" beforeDir="false" afterPath="$PROJECT_DIR$/utilitarias/BaseDatos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utilitarias/Producto.py" beforeDir="false" afterPath="$PROJECT_DIR$/utilitarias/Producto.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +37,7 @@
   }
 }]]></component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Principal.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/utilitarias/BaseDatos.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/utilitarias/Producto.py" root0="SKIP_INSPECTION" />
   </component>
@@ -58,6 +59,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.Principal.executor": "Run",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -87,7 +89,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1771280521501</updated>
-      <workItem from="1771280523016" duration="7713000" />
+      <workItem from="1771280523016" duration="9996000" />
     </task>
     <task id="LOCAL-00001" summary="Preparacion - Configuracion basica del proyecto">
       <option name="closed" value="true" />
@@ -113,13 +115,25 @@
       <option name="project" value="LOCAL" />
       <updated>1771284688987</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="trabajo fase 3">
+      <option name="closed" value="true" />
+      <created>1771288771026</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1771288771026</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Preparacion - Configuracion basica del proyecto" />
     <MESSAGE value="trabajo fase 1 - creacion clase producto&#10;Preparacion - Configuracion basica del proyecto" />
     <MESSAGE value="trabajo fase 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="trabajo fase 2" />
+    <MESSAGE value="trabajo fase 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="trabajo fase 3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/SQL_El_Gran_Sistema_de_inventario$Principal.coverage" NAME="Principal Coverage Results" MODIFIED="1771290525249" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

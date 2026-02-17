@@ -10,7 +10,7 @@ def conectar():
         con = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="root",
+            password="admin123",
             database="Ejercicio_BD",
             port=3306
         )
@@ -26,7 +26,8 @@ def listar_productos():
     try:
         sql = "SELECT * FROM Productos;"
         cursor = con.cursor()
-        resultado = cursor.fetchall()
+        cursor.execute(sql)
+        resultado = cursor.fetchall(dic=True)
 
         # Recorremos el resultado que contiene todos los registros (filas) de la BD
         for registro in resultado:
