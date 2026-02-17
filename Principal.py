@@ -27,7 +27,7 @@ def registrar_producto_bd():
         fi = input("Ingrese la fecha de ingreso del producto (1990-12-29): ")
 
         # Crear el objeto Producto
-        nuevo_producto = Producto(n, c, m, p, s, d, pe, fi)
+        nuevo_producto = Producto(None, n, c, m, p, s, d, pe, fi)
 
         # Registrar el producto
         registrar_producto(nuevo_producto)
@@ -45,7 +45,7 @@ def actualizar_producto_bd():
         s = int(input("Ingrese el stock del producto: "))
         d = float(input("Ingrese el descuento (%) del producto: "))
         pe = float(input("Ingrese el peso del producto: "))
-        fi = input("Ingrese la fecha de ingreso del producto (1990-12-29): ")
+        fi = input("Ingrese la fecha de ingreso del producto (AAAA-MM-DD): ")
 
         # Crear el objeto Producto
         producto_actualizado = Producto(id, n, c, m, p, s, d, pe, fi)
