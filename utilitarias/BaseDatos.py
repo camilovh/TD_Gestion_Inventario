@@ -1,54 +1,64 @@
-# Este modulo contendra lo relacionado a la Conexion BD - MySQL
+# Este módulo contendrá lo relacionado a la Conexión BD - MySQL
 # Importar el controlador (drive) de MySQL, Error y Producto
 import mysql.connector
 from mysql.connector import Error
 from .Producto import Producto
 
-# Crear la funcion conectar () para conectarme a MySQL
+# Crear la Función conectar() para conectarme a MySQl
 def conectar():
     try:
         con = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="admin123",
+            password="root",
             database="Ejercicio_BD",
-            port= 3306
+            port=3306
         )
-        print("[MySQL] Conectado")
+        print("[MySQL] Conexión Establecida ¡OK!")
     except Error as e:
-        print(f"[ERROR] Conexion FAllida a MySQL: {e}")
+        print(f"[ERROR] Conexión Fallida a MySQL: {e}")
     return con
 
-# Crear la Funcion para listar Productos
-def listar_produtos():
+# Crear la Función para listar productos = listar_productos()
+def listar_productos():
     con = conectar()
-    lista_produtos = []
+    lista_productos = []
     try:
-        sql = "SELECT * FROM Producto;"
-        cursor = con.cursor() #permite obtener un objeto que puede ejecutar sentencias SQL
+        sql = "SELECT * FROM Productos;"
+        cursor = con.cursor()
         resultado = cursor.fetchall()
 
         # Recorremos el resultado que contiene todos los registros (filas) de la BD
         for registro in resultado:
             producto = Producto(
                 id = registro['ProductoID'],
-                nombre = registro['nombre'],
-                descripcion = registro['descripcion'],
-
-
+                nombre = registro['Nombre'],
+                categoria = registro['Categoria'],
+                marca = registro['Marca'],
+                precio = registro['Precio'],
+                stock = registro['Stock'],
+                descuento = registro['Descuento'],
+                peso = registro['Peso'],
+                fecha_ingreso = registro['FechaIngreso']
             )
-
+            lista_productos.append(producto)
     except Error as e:
-        print(f"[ERROR] Conexion Fallida contenido tabla de productor: {e}")
+        print(f"[ERROR] No se pudo listar el contenido de la tabla Productos: {e}")
+    finally:
+        if (con.is_connected()):
+            cursor.close()
+            con.close()
+    return lista_productos
 
-
-def registrar_produto(producto):
+# Crear la Función para registrar un producto = registrar_producto(producto)
+def registrar_producto(producto):
     con = conectar()
     try:
-        # Esto en Python se llama consulta SQL Parametrizadas, para evitar inyecciones SQL
-        #Se crea la consulta SQL priemro y despues pasa a los valores.
-        sql = f"INSERT INTO Producto (Nombre, Categoria, Marca, Precio, Stock, Descuento, Peso, FechaIngreso)"
-        f"VALUES(%s, %s, %s, %s, %s, %s, %s, %s);")
+        # JAVA - PreparedStatement
+        # PYTHON - Consultas SQL Parametrizadas
+        # Esta medida es para evitar inyecciones SQL, creando la consulta SQL primero y después pasando los valores
+        sql = (f"INSERT INTO Productos (Nombre, Categoria, Marca, Precio, Stock, Descuento, Peso, FechaIngreso)"
+               f"VALUES(%s, %s, %s, %s, %s, %s, %s, %s);")
         valores = (
             producto.get_nombre(),
             producto.get_categoria(),
@@ -60,17 +70,21 @@ def registrar_produto(producto):
             producto.get_fecha_ingreso()
         )
         cursor = con.cursor()
-        # Aca pasan 2 cosas. 1) Al ejecutar el metodo execute() esto gatilla en MySQL el comando START TRANSACTION;
-        #2) El string 'sql' (valores parametrizados) es rellenado con valores (tupla 'valores') en el metodo execute()
+
+        # Acá pasan 2 cosas:
+        # 1) Al ejecutar el metodo execute() esto gatilla en MySQL el comando START TRANSACTION;
+        # 2) El string 'sql' (valores parametrizados) es rellenado con valores (tupla 'valores') en el metodo execute()
         cursor.execute(sql, valores)
 
-        #aplicamos el COMIT (principios ACID)
+        # Aplicamos el COMMIT (Principios ACID)
         con.commit()
-        print("[MySQL] Producto registrado exitosamente")
+        print("[MySQL] Producto registrado exitosamente ¡OK!")
     except Error as e:
         con.rollback()
-        print(f"[ERROR] No se pudo registrar producto: {e}")
+        print(f"[ERROR] No se pudo registrar el producto: {e}")
     finally:
-        if (con.is_conected()):
+        if (con.is_connected()):
             cursor.close()
             con.close()
+
+# Crear la Función para actualizar un producto = actualizar_producto(producto)

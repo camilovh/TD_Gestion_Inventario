@@ -1,8 +1,8 @@
 # Este modulo contendra la clase del producto
 class Producto:
     #constructor
-    def __init__(self, id = None, nombre = None, categoria = None, marca = None, precio = 0.0, stock = 0, descuento = 0.0, peso =0.0, fecha_ingreso = None):
-        self._id = id
+    def __init__(self, productoID = None, nombre = None, categoria = None, marca = None, precio = 0.0, stock = 0, descuento = 0.0, peso =0.0, fecha_ingreso = None):
+        self._productoID = productoID
         self._nombre = nombre
         self._categoria = categoria
         self._marca = marca
@@ -13,10 +13,10 @@ class Producto:
         self._fecha_ingreso = fecha_ingreso
 
 #Getter y Setter
-    def get_id(self):
-        return self._id
-    def set_id(self, id):
-        self._id = id
+    def get_productoID(self):
+        return self._productoID
+    def set_productoID(self, productoID):
+        self._productoID = productoID
 
     def get_nombre(self):
         return self._nombre
@@ -60,7 +60,7 @@ class Producto:
 
     #Metodo STR
     def __str__(self):
-        return (f"-- PRODUCTOR ID: {self._id} --\n"
+        return (f"-- PRODUCTOR productoID: {self._productoID} --\n"
                 f"-- NOMBRE: {self._nombre} --\n"
                 f"-- CATEGORIA: {self._categoria} --\n"
                 f"-- MARCA: {self._marca} --\n"
